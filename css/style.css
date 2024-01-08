@@ -18,10 +18,11 @@ body {
     background-image: 
     radial-gradient(circle at left top, rgb(142 173 213 / .3), transparent 400px),
     radial-gradient(circle at right center, rgb(142 173 213 / .3), transparent 400px);
+    text-align: center;
 }
 
 .content-center {
-    padding: 1rem;
+    padding: 3rem 1.5rem;
     margin: 0 auto;
     max-width: 75em ;
 }
@@ -37,10 +38,16 @@ a {
 
 h1 {
     font-size: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 h2 {
     font-size: 2rem;
+    margin-bottom: 2.5rem ;
+}
+
+p {
+    margin: 1rem 0;
 }
 
 .brands h2 {
@@ -57,7 +64,8 @@ h2 {
     border-radius: 5px;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
     background-color: var(--primary-color-dark);
 }
 
@@ -66,32 +74,12 @@ h2 {
 .branding,
 .results,
 .testemunhos,
-.contato,
-.footer {
+.contato
+ {
     margin: 6rem 0;
 }
 
-/* Top Header */
-
-.top-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
-}
-
-.top-header-menu a {
-    display: block;
-    padding: 1.75rem 0;
-}
-
 /* Burguer menu */
-
-.burguer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .burguer-menu {
     display: inline-block;
@@ -110,6 +98,7 @@ h2 {
     width: 24px;
     position: absolute;
     left: 0;
+    transition: all .3s;
 }
 
 .burguer-menu::after {
@@ -123,21 +112,148 @@ h2 {
 }
 
 .menu-burguer {
-    height: 24px;
     cursor: pointer;
 }
-
-
 
 .top-header-menu {
     position: absolute;
     top: 100px;
     left: 0;
     right: 0;
-    max-height: 100vh;
     text-align: right;
     background-color: white;
     padding: 0 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s;
+}
+
+.checkbox {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    height: 0;
+    width: 0;
+}
+
+.checkbox:focus-visible /*O couteúdo não receberá foco com o click, somente com a navegação do teclado*/ + .menu-burguer {
+    outline: 2px solid black;
+}
+
+ .top-header-menu:focus-within /*quando o foco estiver dentro o conteúdo ficará visível*/ { 
+    max-height: 100vh;
+}
+
+.checkbox:checked  ~ .top-header-menu {
+    max-height: 100vh;
+}
+
+.checkbox:checked + .menu-burguer .burguer-menu {
+    background-color: transparent;
+}
+
+.checkbox:checked + .menu-burguer .burguer-menu::before {
+    transform: rotate(45deg);
+}
+.checkbox:checked + .menu-burguer .burguer-menu::after {
+    transform: rotate(-45deg);
+}
+
+/* Top Header */
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-header-menu li {
+    padding: 0.25rem;
+}
+
+.top-header-menu a {
+    display: block;
+    padding: 1.75rem 0;
+}
+
+/*Imagens*/
+
+.img {
+    width: 100%;
+}
+
+.testemunho-thumb {
+    width: 8.125rem;
+    height: 8.125rem;
+}
+
+/*Grid*/
+
+.row {
+display: grid;
+grid-template-columns: repeat(12, 1fr);
+gap: .5rem;
+grid-auto-flow: dense;
+}
+
+.mo-12 {
+    grid-column: span 12;
+}
+
+/*Brands*/
+
+.brands ul{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--gray);
+    gap: 1.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/*Testemunho*/
+
+.testemunho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--gray);
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.row.testemunhos-contant{
+    row-gap: 3rem;
+}
+/*Contatos*/
+
+.contato {
+    background-color: var(--gray);
+    padding: 6.5rem 1rem 1rem 1rem;
+    border-radius: 5px;
+}
+.contato div {
+    display: none;
+}
+.testemunho h3,
+footer h3 {
+    margin: 1rem 0;
+}
+
+/*footer*/
+
+.footer {
+    background-color: var(--gray);
+}
+
+.icons li {
+    display: inline-block;
+    font-size: 2rem;
+    margin-left: 1.5rem;
+}
+
+.footer-container section {
+    margin-bottom: .75rem;
 }
 
 
