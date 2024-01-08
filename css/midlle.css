@@ -1,0 +1,68 @@
+@media screen and (min-width:40em) {
+
+    body {
+        text-align: left;
+    }
+
+    h1 {
+        font-size: 3.625rem;
+    }
+    h2 {
+        font-size: 2.875rem;
+    }
+
+     /*Top header*/
+
+    .checkbox,
+    .menu-burguer {
+        display: none;
+    }
+
+    .top-header-menu {
+        position: initial;
+        background-color: initial;
+        max-height: initial;
+    }
+
+    .top-header-menu li {
+        display: inline-block;
+        margin-right: 2rem;
+    }
+
+    /*Hero banner*/
+
+    .hero-banner-img  {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /*grid*/
+    .md-6-inverse {
+        grid-column: 7 / -1;
+    }
+
+    .md-6 {
+        grid-column: span 6;
+    }
+
+    .md-9 {
+        grid-column: span 9;
+    }
+    .md-3 {
+        grid-column: span 3;
+    }
+
+    /*Testemunhos*/
+
+    .testemunho {
+        flex-direction: row;
+    }
+
+    /*Contato*/
+
+    .contato div{
+        display: initial;
+        text-align: center;
+    }
+}
